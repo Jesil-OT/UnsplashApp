@@ -31,7 +31,7 @@ class UnsplashPagingAdapter: PagingDataAdapter<UnsplashPhoto, UnsplashPagingAdap
         RecyclerView.ViewHolder(binding.root){
 
         private val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
+            .placeholder(R.drawable.ic_image_place_holder)
             .error(R.drawable.ic_error)
 
             fun bind(photo: UnsplashPhoto){
