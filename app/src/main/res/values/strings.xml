@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Unsplash app</string>
+    <string name="result_error">Result could not be loaded</string>
+    <string name="retry">Retry</string>
+    <string name="no_result_found">No result found for this Query</string>
+    <string name="not_loaded">Results could not be loaded</string>
+    <string name="search">Search</string>
+</resources>
