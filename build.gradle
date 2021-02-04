@@ -51,4 +51,6 @@ ext {
     retrofitVersion = '2.9.0'
     testExtJunitVersion = '1.1.1'
     materialVersion = '1.2.1'
+    lottieVersion = '3.4.0'
+
 }

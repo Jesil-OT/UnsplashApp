@@ -74,6 +74,9 @@ dependencies {
 
     // Paging 3
     implementation "androidx.paging:paging-runtime:$pagingVersion"
+
+    //lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }
 
 kapt {

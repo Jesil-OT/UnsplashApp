@@ -9,10 +9,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.jesil.example.mvvm.unsplashapp.R
+import com.jesil.example.mvvm.unsplashapp.constant.OnItemClickListener
 import com.jesil.example.mvvm.unsplashapp.data.UnsplashPhoto
 import com.jesil.example.mvvm.unsplashapp.databinding.ItemUnsplashPhotoBinding
 
-class UnsplashPagingAdapter: PagingDataAdapter<UnsplashPhoto, UnsplashPagingAdapter.PhotoViewHolder>(
+class UnsplashPagingAdapter(private val _listener: OnItemClickListener):
+        PagingDataAdapter<UnsplashPhoto, UnsplashPagingAdapter.PhotoViewHolder>(
     PHOTO_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
@@ -27,8 +29,20 @@ class UnsplashPagingAdapter: PagingDataAdapter<UnsplashPhoto, UnsplashPagingAdap
     }
 
 
-    class PhotoViewHolder(private val binding: ItemUnsplashPhotoBinding) :
+   inner class PhotoViewHolder(private val binding: ItemUnsplashPhotoBinding) :
         RecyclerView.ViewHolder(binding.root){
+
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if(position != RecyclerView.NO_POSITION){
+                    val item = getItem(position)
+                    if (item != null){
+                        _listener.onItemClick(item)
+                    }
+                }
+            }
+        }
 
         private val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_image_place_holder)
@@ -59,3 +73,5 @@ class UnsplashPagingAdapter: PagingDataAdapter<UnsplashPhoto, UnsplashPagingAdap
     }
 
 }
+
+
